@@ -1,0 +1,38 @@
+<div class="back shared-back">
+  <a routerLink="/home" routerLinkActive="active" id="back-button"><i class="fa-solid fa-caret-left"></i> Back</a>
+
+  @if (success) {
+    <p id="success-message">Transaction completed successfully!</p>
+  }
+
+  @if(!success){
+    <form [formGroup]="transactionForm" [class]="successAnimation ? 'form-style success' : 'form-style'">
+      <h1>Create a new transaction</h1>
+
+      <div class="input-box">
+        <p>Sender ID* </p>
+        <input type="number" id="senderId" formControlName="senderId" formControlName="senderId"
+         [style.border]="f.senderId.errors && (f.senderId.dirty || f.senderId.touched) ? '.11em solid red' : 'none'">
+      </div>
+
+      <div class="input-box">
+        <p>Receiver ID* </p>
+        <input type="number" id="receiverId" formControlName="receiverId" formControlName="receiverId"
+        [style.border]="f.receiverId.errors && (f.receiverId.dirty || f.receiverId.touched) ? '.11em solid red' : 'none'">
+      </div>
+
+      <div class="input-box">
+        <p>Value (R$)*</p>
+        <input type="number" id="value" formControlName="value" formControlName="value"
+        [style.border]="f.value.errors && (f.value.dirty || f.value.touched) ? '.11em solid red' : 'none'">
+
+      </div>
+
+      <button id="submit-button" (click)="onSubmit()" [disabled]="transactionForm.invalid">Submit</button>
+      <div class="error">
+        <p>{{errorMessage}}</p>
+      </div>
+    </form>
+  }
+
+</div>

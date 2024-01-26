@@ -1,0 +1,122 @@
+<div class="back shared-back">
+  <a routerLink="/home" routerLinkActive="active" id="back-button"><i class="fa-solid fa-caret-left"></i> Back</a>
+
+  @if (success) {
+    <p id="success-message">User has been registered successfully!</p>
+  }
+
+  @if(!success){
+    <form [formGroup]="userForm" [class]="successAnimation ? 'form-style success' : 'form-style'">
+
+      <h1>Create a new user</h1>
+
+      <div class="input-box">
+        <label>First name* <br><input type="text" id="firstName" formControlName="firstName"></label>
+        <div class="error-box">
+          @if (f.firstName.errors && (f.firstName.dirty || f.firstName.touched)) {
+            <div class="error">
+              <small>First name is required</small>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>Last name* <br><input type="text" id="lastName" formControlName="lastName"></label>
+        <div class="error-box">
+          @if (f.lastName.errors && (f.lastName.dirty || f.lastName.touched)) {
+            <div class="error">
+              <small>Last name is required</small>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>Document* <br><input type="text" id="document" formControlName="document"></label>
+        <div class="error-box">
+            @if (f.document.errors && (f.document.dirty || f.document.touched)) {
+              <div class="error">
+              @if (f.document.errors.required) {
+                <small>Document is required</small>
+              }
+              @if (f.document.errors.pattern) {
+                <small>Invalid document format</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>Email* <br><input type="text" formControlName="email"></label>
+        <div class="error-box">
+          @if (f.email.errors && (f.email.dirty || f.email.touched)) {
+            <div class="error">
+              @if (f.email.errors.required) {
+                <small>Email is required</small>
+              }
+              @if (f.email.errors.email) {
+                <small>Invalid email format</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <p id="user-type-title">User type*</p>
+
+      <div class="radio-box">
+        <div class="select-userType">
+          <input type="radio" name="userType" value="common" id="common" formControlName="userType" checked/>
+          <label for="common"><span></span> Common</label>
+        </div>
+
+        <div class="select-userType">
+          <input type="radio" name="userType" value="merchant" id="merchant" formControlName="userType"/>
+          <label for="merchant"><span></span> Merchant</label>
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>Balance (R$)*<br><input type="number" formControlName="balance"></label>
+        <div class="error-box">
+          @if (f.balance.errors && (f.balance.dirty || f.balance.touched)) {
+            <div class="error">
+              @if (f.balance.errors.required) {
+                <small>Balance is required</small>
+              }
+              @if (f.balance.errors.min) {
+                <small>Balance min is 0</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>Password* <br><input type="text" formControlName="password"></label>
+        <div class="error-box">
+          @if (f.password.errors && (f.password.dirty || f.password.touched)) {
+            <div class="error">
+              @if (f.password.errors.required) {
+                <small>Password is required</small>
+              }
+              @else {
+                <small>Password must have at least 8 characters</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <button id="submit-button" (click)="onSubmit()" [disabled]="userForm.invalid">Submit</button>
+      @if(registeredUser){
+        <div class="error-box error register-error">
+          <p>User already registered</p>
+        </div>
+      }
+    </form>
+  }
+
+</div>

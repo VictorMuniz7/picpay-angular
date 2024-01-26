@@ -1,1 +1,109 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+}
+
+:root{
+  --white: #ffffff;
+  --black: #0e0d0d;
+  --warn-red: #ff0f0f;
+
+  .shared-back{
+    background: linear-gradient(135deg, rgb(65, 64, 64), rgba(1,1,1,1), rgb(65, 64, 64));
+    background-size: 600% 600%;
+    animation: backAnimation 16s ease infinite;
+  }
+
+  #back-button{
+    background-color: var(--white);
+    text-decoration: none;
+    color: var(--black);
+    font-size: 1.2em;
+    padding: .1em .7em;
+    align-self: start;
+    margin: .5em 1em;
+  }
+
+  #submit-button{
+    width: 8.3em;
+    margin-top: .6em;
+    background-color: var(--white);
+    border: 0;
+    outline: 0;
+    font-size: 1.6em;
+    cursor: pointer;
+
+    &:enabled:hover{
+      box-shadow: 0 0 .4em white;
+    }
+
+    &:enabled:active{
+      transform: translateY(.1em);
+    }
+
+    &:disabled{
+      background-color: #b1afaf;
+      cursor: auto;
+    }
+  }
+
+  .form-style{
+    margin-top: 1em;
+    padding: 1em;
+    border: .35em solid var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--white);
+  }
+
+
+.success{
+  animation: registeredAnimation .5s linear;
+}
+
+#success-message{
+  font-size: 2em;
+  color: var(--white);
+  text-align: center;
+  margin-top: 7em;
+}
+
+@keyframes registeredAnimation {
+
+  from{
+    transform: scaleY(1);
+    display: flex;
+  }
+
+  to{
+    transform: scaleY(0);
+    display: none;
+  }
+}
+
+
+  @keyframes backAnimation {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+  }
+
+  @media screen and (min-width: 37em){
+
+    #success-message{
+      font-size: 3em;
+    }
+  }
+
+  @media screen and (min-width: 70em){
+
+    #success-message{
+      font-size: 3em;
+      margin-top: 5em;
+    }
+  }
+}

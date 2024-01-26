@@ -1,0 +1,88 @@
+.container{
+  width: 95%;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2em;
+}
+
+.route{
+  width: 20em;
+  height: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: .3em;
+
+  &::before{
+    position: absolute;
+    content: '';
+    width: 150%;
+    height: 550%;
+    background: rgb(245,30,124);
+    background: linear-gradient(135deg, rgba(245,30,124,1) 25%, rgba(100,203,76,1) 75%);
+    transform: rotate(10deg);
+  }
+
+  &::after{
+    content: '';
+    position: absolute;
+  }
+
+  &:hover::before{
+    animation: borderAnimation 2s linear infinite;
+  }
+
+  a{
+    width: 100%;
+    height: 100%;
+    font-size: 1.6em;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, rgb(87, 86, 86), rgba(1,1,1,1), rgb(100, 99, 99));
+    background-size: 200% 200%;
+    white-space: nowrap;
+    color: var(--white);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+      animation: buttonAnimation 3s ease infinite;
+    }
+  }
+}
+
+@keyframes borderAnimation{
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes buttonAnimation {
+  0%{background-position:0% 53%}
+  50%{background-position:100% 48%}
+  100%{background-position:0% 53%}
+}
+
+@media screen and (min-width: 57em){
+
+  .container{
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 89em){
+
+  .container{
+    width: 60%;
+  }
+}

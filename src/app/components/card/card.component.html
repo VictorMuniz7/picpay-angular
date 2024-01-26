@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="info">
+    <p class="id">{{ user.id }}</p>
+    <div class="separator"></div>
+    <p>{{ user.firstName }}</p>
+    <div class="separator"></div>
+    <p class="user-type">{{ user.userType }}</p>
+    <div class="separator"></div>
+    <p (click)="toggleDetails()">
+      <i *ngIf="!showDetails" class="fa-solid fa-caret-down"></i><i *ngIf="showDetails" class="fa-solid fa-caret-up"></i></p>
+  </div>
+
+  <div class="details" *ngIf="showDetails" #details>
+    <div class="detail">
+      <h3>First name</h3>
+      <p>{{ user.firstName }}</p>
+    </div>
+    <div class="detail">
+      <h3>Last name</h3>
+      <p>{{ user.lastName }}</p>
+    </div>
+    <div class="detail">
+      <h3>Document</h3>
+      <p>{{ user.document }}</p>
+    </div>
+    <div class="detail">
+      <h3>Password</h3>
+      <p>{{ user.password }}</p>
+    </div>
+    <div class="detail">
+      <h3>User Type</h3>
+      <p class="user-type" >{{ user.userType }}</p>
+    </div>
+    <div class="detail">
+      <h3>Balance</h3>
+      <p>{{ user.balance + 'R$'}}</p>
+    </div>
+    <div class="detail email">
+      <h3>Email</h3>
+      <p>{{ user.email }}</p>
+    </div>
+    <div class="id details-id">
+      <p>{{ user.id }}</p>
+    </div>
+  </div>
+</div>

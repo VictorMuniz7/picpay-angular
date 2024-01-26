@@ -1,0 +1,101 @@
+.back{
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+form{
+  width: 90%;
+  gap: 2em;
+
+  h1{
+    text-align: center;
+    font-size: 1.7em;
+  }
+}
+
+.input-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  input{
+    width: 4em;
+    font-size: 1.2em;
+    outline: 0;
+  }
+
+  p{
+    font-size: 1.3em;
+  }
+}
+
+.error{
+
+  p{
+    text-align: center;
+    color: var(--warn-red);
+  }
+}
+
+@media screen and (min-width: 28em){
+
+  form{
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 43em){
+
+  form{
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 62em){
+
+  form{
+
+    h1{
+      font-size: 2.2em;
+    }
+  }
+
+  .input-box{
+
+    input{
+      font-size: 1.9em;
+    }
+
+    p{
+      font-size: 1.8em;
+    }
+  }
+
+  #submit-button{
+    width: 12em;
+  }
+}
+
+
+@media screen and (min-width: 84em){
+
+  form{
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 84em){
+
+  form{
+
+    width: 25%;
+  }
+}
+
+
+
